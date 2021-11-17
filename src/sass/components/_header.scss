@@ -1,0 +1,133 @@
+@keyframes underline_anim {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.header {
+  &__container {
+    background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
+      url("/img/main-bg-320.png");
+    padding-bottom: 22px;
+    padding-top: 41px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    margin-left: 10px;
+    @media (max-width: 767px) {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+      color: white;
+    }
+    @media (min-width: 768px) {
+      opacity: 1;
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+  }
+  &__icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  &__form {
+    margin: 0 auto;
+    margin-bottom: 23px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    label {
+      // width: 100%;
+
+      position: relative;
+      .icon-search {
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        left: calc(100% - 20px);
+      }
+    }
+  }
+  &__input {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.7);
+    width: 100%;
+    @media (min-width: 768px) {
+      width: 336px;
+    }
+  }
+  &__input-text {
+    position: absolute;
+    font-size: 14px;
+    line-height: 16px;
+    bottom: 0;
+    color: #ffffff;
+  }
+  &__nav {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    .site-name {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  &__nav-list {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+    margin-left: auto;
+    margin-bottom: 40px;
+  }
+  &__list-item {
+    &:not(:last-child) {
+      margin-right: 39px;
+    }
+  }
+  &__link {
+    text-decoration: none;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    &:hover::before {
+      content: " ";
+      width: 0;
+      height: 3px;
+      position: absolute;
+      bottom: -2px;
+      background: #ff6b08;
+      border-radius: 5px;
+      animation: underline_anim 200ms linear 1 forwards;
+    }
+  }
+  .wrong-request {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    display: inline;
+    // align-items: center;
+    margin-top: 22px;
+    color: #ff001b;
+  }
+}
