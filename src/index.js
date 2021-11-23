@@ -1,3 +1,7 @@
 import './sass/main.scss';
-// import './request';
-// import './simple'
+
+//main
+// import './.partials/js/card-to-list';
+
+//footer
+// import './.partials/team-list.json';
