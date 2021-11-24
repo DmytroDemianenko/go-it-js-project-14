@@ -12,19 +12,24 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 .container {
-  max-width: 480px;
+  max-width: 320px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 321px) {
   .container {
-    max-width: 1024px;
+    max-width: 768px;
     padding: 0 76px;
+  }
+}
+@media (min-width: 769px) {
+  .container {
+    max-width: 768px;
   }
 }
 @media (min-width: 1024px) {
   .container {
-    width: 1440px;
+    max-width: 1024px;
   }
 }

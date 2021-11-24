@@ -10,11 +10,11 @@
   &__container {
     background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
       url('/img/main-bg-320.png');
-    @media (min-width: 400px) {
+    @media (min-width: 321px) {
       background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
         url('/img/main-bg-768.png');
     }
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
       background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
         url('/img/main-bg-1024.png');
     }
@@ -28,7 +28,9 @@
   .main-icon-link {
     text-decoration: none;
   }
-
+  .header__icon {
+    margin-right: 10px;
+  }
   &__title {
     font-weight: 500;
     font-size: 30px;
@@ -36,7 +38,6 @@
     display: inline-flex;
     // align-items: center;
     text-align: center;
-    margin-left: 10px;
 
     @media (max-width: 767px) {
       opacity: 0;
@@ -122,12 +123,8 @@
     width: 100%;
     flex-direction: row;
     margin-bottom: 40px;
-    .site-name,
-    .main-icon-link {
-      display: flex;
-      flex-direction: row;
-    }
   }
+
   &__nav-list {
     padding: 0;
     display: flex;
