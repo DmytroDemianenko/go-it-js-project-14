@@ -1,15 +1,17 @@
 const BASE_URL = 'https://api.themoviedb.org';
 const API_URL = '070151ea430b4e74dbca9bca592b262c';
 
-export default  class tmdbApiService {
-  constructor() {
-    this.searchQuery = '';
-    this.page = 1;
-}
-//   Запрос на фильмы по ключевому слову
+export default class TmdbApiService {
+//   constructor() {
+//     this.searchQuery = '';
+//     this.page = 1;
+// }
+
 fetchFilms() {
     return fetch(
-      `${BASE_URL}/3/search/movie?api_key=${API_URL}&query=${this.searchQuery}&language=en-US&include_adult=false&page=${this.page}`
+      `https://api.themoviedb.org/3/trending/all/day?api_key=070151ea430b4e74dbca9bca592b262c&page=3`
+      //   Запрос на фильмы по ключевому слову
+      // `${BASE_URL}/3/search/movie?api_key=${API_URL}&query=${this.searchQuery}&language=en-US&include_adult=false&page=${this.page}`
       )
       .then(response => response.json())
       .then(({ results }) => {
@@ -24,10 +26,10 @@ fetchFilms() {
   resetPage() {
     this.page = 1;
   }
-  get query() {
-    return this.searchQuery;
-  }
-  set query(newQuery) {
-    this.searchQuery = newQuery;
-  }
+  // get query() {
+  //   return this.searchQuery;
+  // }
+  // set query(newQuery) {
+  //   this.searchQuery = newQuery;
+  // }
 }
