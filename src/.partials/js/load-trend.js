@@ -40,7 +40,7 @@ export default function getRefs() {
   function appendImgMarkup(image) {
     // refs.loadMore.style.display = 'block';
     refs.galleryList.insertAdjacentHTML('beforeend', imgTemp(image));
-//     scrollInto();
+    // scrollInto();
   }
   function clearHitsContainer() {
     refs.galleryList.innerHTML = '';
