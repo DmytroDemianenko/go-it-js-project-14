@@ -1,4 +1,4 @@
-import './sass/main.scss';
+// import './sass/main.scss';
 
 //main
 import './.partials/js/card-to-list';
@@ -7,14 +7,10 @@ import './.partials/js/card-to-list';
 import './.partials/team-list.json';
 import './.partials/js/modal-team-list';
 
-
-
-
-
 // попозже добавлю в другой файл, когда остальные функции будут готовы
 import { trendingMovies, getGenres } from './.partials/js/apiService';
 import { renderPaginationTrendingMovie } from './.partials/js/pagination';
 
 trendingMovies().then(data => {
     renderPaginationTrendingMovie(data.total);
-});
+import './.partials/js/load-trend';
