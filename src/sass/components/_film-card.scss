@@ -1,5 +1,5 @@
 .film-card {
-  width: 280px;
+  // width: 280px;
 
   font-family: $main-font;
   font-weight: 500;
@@ -31,7 +31,7 @@
     width: 274px;
     margin-bottom: 30px;
 
-    &:nth-child(3n) {
+    &:not(:nth-child(3n)) {
       margin-right: 50px;
     }
   }
