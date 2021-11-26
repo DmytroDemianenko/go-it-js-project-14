@@ -1,4 +1,4 @@
-// import './sass/main.scss';
+
 
 //main
 import './.partials/js/card-to-list';
@@ -7,3 +7,5 @@ import './.partials/js/card-to-list';
 import './.partials/team-list.json';
 import './.partials/js/modal-team-list';
 import './.partials/js/load-trend';
+
+import './sass/main.scss';
