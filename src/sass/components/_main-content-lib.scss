@@ -1,4 +1,4 @@
-.section-main-content {
+.section-library {
   padding-top: 20px;
   padding-bottom: 40px;
 
@@ -7,7 +7,7 @@
     padding-bottom: 60px;
   }
 }
-.container-main-content {
+.container-main-lib {
   @media screen and (min-width: 768px) {
     padding: 0 75px;
   }
@@ -16,19 +16,10 @@
   }
 }
 
-.collection {
+.collection-lib {
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
     margin: -15px;
-  }
-  .collection__item {
-    @media screen and (min-width: 768px) {
-      margin: 15px;
-      flex-basis: calc((100% - 60px) / 2);
-    }
-    @media screen and (min-width: 1024px) {
-      flex-basis: calc((100% - 90px) / 3);
-    }
   }
 }
