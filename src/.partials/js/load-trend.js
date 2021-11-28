@@ -1,38 +1,26 @@
 export default function getRefs() {
     return {
-      // searchForm: document.querySelector('.search-form'),
-      // loadMore: document.querySelector('[data-action="load-more"]'),
+      searchForm: document.querySelector('.header-form'),
       galleryList: document.querySelector('.collection'),
     };
   };
   
   import imgTemp from '../film-card.hbs';
   const refs = getRefs();
-  import TmdbApiService from './apiService';
+  import TmdbApiService from './apiServiceTrend';
   const tmdbApiService = new TmdbApiService();
   
-  // refs.searchForm.addEventListener('submit', onSearch);
   // refs.loadMore.addEventListener('click', onLoadMore);
   // refs.galleryList.addEventListener('click', openLargeImage);
   // refs.loadMore.style.display = 'none';
-  
-  function onSearch(){
-    tmdbApiService.query = Promise.value;
-    // e.preventDefault();
-    // refs.galleryList.innerHTML = 's';
-    // tmdbApiService.query = e.currentTarget.elements.query.value;
-    // if (tmdbApiService.query === '') {
-    //   return error({
-    //     text: 'Enter text!',
-    //     delay: 300,
-    //   });
-    // }
-    
-  clearHitsContainer();
+
+  function onLoadTrend(){
+      clearHitsContainer();
     tmdbApiService.resetPage();
     tmdbApiService.fetchFilms().then(appendImgMarkup);
   }
-  onSearch();
+    onLoadTrend();
+  
   // function onLoadMore() {
   //   tmdbApiService.fetchFilms().then(appendImgMarkup);
   // }
@@ -42,9 +30,9 @@ export default function getRefs() {
     refs.galleryList.insertAdjacentHTML('beforeend', imgTemp(image));
     // scrollInto();
   }
+  
   function clearHitsContainer() {
     refs.galleryList.innerHTML = '';
-    
   }
   
 //   function scrollInto() {
