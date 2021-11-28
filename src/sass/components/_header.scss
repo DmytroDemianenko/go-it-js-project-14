@@ -18,14 +18,30 @@
   &__container {
     background-size: cover;
     background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
-      url("/img/main-bg-320.png");
+      url('/img/main-bg-320.png');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-size: cover;
+      background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
+        url('/img/main-bg-320x2.jpg');
+    }
+    // ololo
     @media (min-width: 321px) {
       background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
-        url("/img/main-bg-768.png");
+        url('/img/main-bg-768.png');
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-size: cover;
+        background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
+          url('/img/main-bg-768x2.jpg');
+      }
     }
     @media (min-width: 769px) {
       background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
-        url("/img/main-bg-1024.png");
+        url('/img/main-bg-1024.png');
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-size: cover;
+        background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)),
+          url('/img/main-bg-1024x2.jpg');
+      }
     }
     background-position: center;
     padding-bottom: 22px;
@@ -42,20 +58,24 @@
   .main-icon-link {
     text-decoration: none;
   }
-  .header__login-btn {
-    background-color: transparent;
-    border: none;
-    padding: 0;
+  .header__icon {
+    margin-right: 10px;
   }
   &__title {
-    margin-left: 10px;
-    @media (max-width: 768px) {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    display: inline-flex;
+    // align-items: center;
+    text-align: center;
+
+    @media (max-width: 767px) {
       opacity: 0;
       position: absolute;
       z-index: -1;
       color: white;
     }
-    @media (min-width: 769px) {
+    @media (min-width: 768px) {
       opacity: 1;
       position: relative;
       z-index: 1;
@@ -81,7 +101,12 @@
     width: 100%;
     transform: translateX(-50%);
     label {
-      width: 332px;
+      @media (max-width: 767px) {
+        min-width: 300px;
+        width: 100%;
+        margin-left: auto;
+      }
+
       display: flex;
       align-items: center;
       position: relative;
@@ -151,8 +176,10 @@
     }
   }
   &__link,
-  .header__login-btn {
-    text-decoration: none;
+  .header__btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
 
     text-decoration: none;
     cursor: pointer;
