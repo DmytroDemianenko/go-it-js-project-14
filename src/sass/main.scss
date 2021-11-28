@@ -6,10 +6,11 @@
 @import './components/header';
 //@import './components/my-library-page'; //
 @import './components/main-content';
-@import './components/main-content-lib.scss';
-@import './components/modal-film-description.scss';
+@import './components/main-content-lib';
+@import './components/modal-film-description';
 @import './components/footer';
 @import './components/header-library';
-@import './components/singup-main';
 @import './utility/animation';
-/* @import './components/pagination'; */
+@import './components/reg-modal';
+@import './components/log-modal';
+//* @import './components/pagination'; */
