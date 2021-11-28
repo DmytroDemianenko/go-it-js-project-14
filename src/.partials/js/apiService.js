@@ -34,24 +34,24 @@
 //   // }
 // }
 
-// pagination (axios)
-import axios from 'axios';
+// // pagination (axios)
+// import axios from 'axios';
 
-axios.defaults.baseURL = 'https://api.themoviedb.org';
+// axios.defaults.baseURL = 'https://api.themoviedb.org';
 
-export const trendingMovies = () => {
-    return axios
-        .get(`/3/trending/movie/day?api_key=${API_URL}`)
-        .then(res => ({
-            total: res.data.total_results,
-            result: res.data.results
-        }));
-};
+// export const trendingMovies = () => {
+//     return axios
+//         .get(`/3/trending/movie/day?api_key=${API_URL}`)
+//         .then(res => ({
+//             total: res.data.total_results,
+//             result: res.data.results
+//         }));
+// };
 
-export const getGenres = () => {
-    return axios
-        .get(`/3/genre/movie/list?api_key=${API_URL}&language=en-US`)
-        .then(res => {
-            return res.data.genres
-        });
-};
+// export const getGenres = () => {
+//     return axios
+//         .get(`/3/genre/movie/list?api_key=${API_URL}&language=en-US`)
+//         .then(res => {
+//             return res.data.genres
+//         });
+// };
