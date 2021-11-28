@@ -54,7 +54,7 @@ body {
   padding: 0 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 321px) {
   .container {
     max-width: 768px;
     padding: 0 76px;
@@ -62,6 +62,6 @@ body {
 }
 @media (min-width: 1024px) {
   .container {
-    width: 1024px;
+    max-width: 1024px;
   }
 }
