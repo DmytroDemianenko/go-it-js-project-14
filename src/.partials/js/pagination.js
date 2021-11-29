@@ -1,14 +1,12 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 
-export function renderPaginationTrendingMovie(totalItems) {
-    const container = document.getElementById('pagination');
     const options = {
-        totalItems,
-        itemsPerPage: 10,
+        totalItems: 1000,
+        itemsPerPage: 20,
         visiblePages: 5,
         page: 1,
         centerAlign: true,
+        usageStatistics: false,
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
         template: {
@@ -27,12 +25,8 @@ export function renderPaginationTrendingMovie(totalItems) {
                     '<span class="tui-ico-ellip">...</span>' +
                 '</a>'
         }
-    }
-    
-    const pagination = new Pagination(container, options);
-
-    pagination.on('afterMove', event => {
-        const currentPage = event.page;
-        console.log(currentPage);
-    })
 }
+
+const container = document.getElementById('pagination');
+
+export const pagination = new Pagination(container, options);
