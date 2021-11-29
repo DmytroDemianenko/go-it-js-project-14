@@ -53,7 +53,7 @@ api
   .fetchFilms()
   .then(data => {
     onCreateMarkup(data);
-    console.log(data.results);
+//     console.log(data.results);
   })
   .catch(onError);
 
