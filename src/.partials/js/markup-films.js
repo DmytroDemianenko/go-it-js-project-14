@@ -1,17 +1,16 @@
-
 import imgTemp from '../film-card.hbs';
 import createCardMovies from '../film-card.hbs';
 import TmdbApiService from './apiService';
 const api = new TmdbApiService();
 
 export default function getRefs() {
-    return {
-      searchForm: document.querySelector('.header__form'),
-      galleryList: document.querySelector('.collection'),
-      error: document.querySelector('.wrong-request')
-    };
+  return {
+    searchForm: document.querySelector('.header__form'),
+    galleryList: document.querySelector('.collection'),
+    error: document.querySelector('.wrong-request'),
   };
-  const refs=getRefs()
+}
+const refs = getRefs();
 
 // запрос данных для жанров
 const genresArrayStr = [];
@@ -32,7 +31,7 @@ function onRemoveGenres(data) {
   });
 }
 
-//итерация числового массива 
+//итерация числового массива
 function onComparingArrayAndObject(arr, obj) {
   let genresStr = [];
   arr.forEach(el => {
@@ -72,67 +71,67 @@ function onSliceNumber(release) {
   return release.slice(0, 4);
 }
 function normalRatingYearGenres(data) {
-    onFilmReleaseYear(data.results);
-    onRemoveGenres(data.results);
-  }
-  
-  function onCreateMarkup(data) {
-    data.results.forEach(movie => {
-      if(!movie.genre_ids) {
-        movie.genre_ids = [1];
-      } else {
-        return;
-      };
-  
-      if(!movie.vote_average) {
-        movie.vote_average = 0;
-      } else {
-        return;
-      };
-    })
-  
-    normalRatingYearGenres(data);
-    refs.galleryList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
-    return data.results;
-  }
-  
-  function onSearch(e) {
-    e.preventDefault();
-    api.query = e.currentTarget.elements.query.value;
-    resetMarkup();
-    api
-      .fetchSearch(e)
-      .then(data => {
-        onCreateMarkup(data);
-        incorrectInput(data.results);
-        console.log(data.results);
-        refs.searchForm.reset()
-        appendImgMarkup();
-      })
-      .catch(onError);
-    }
-    
-    function appendImgMarkup(i) {
-        refs.galleryList.insertAdjacentHTML('beforeend', imgTemp(i));
-      }
-    
-      function resetMarkup() {
-      refs.galleryList.innerHTML = '';
-      api.resetPage();
-      refs.searchForm.reset();
-    }
-    refs.searchForm.addEventListener('submit', onSearch);
+  onFilmReleaseYear(data.results);
+  onRemoveGenres(data.results);
+}
 
-    // Ошибки
-    function onError() {
-        refs.error.classList.remove('is-hidden')
-        console.log('Search result not successful. Enter the correct movie name and');
-      }
-      
-      function incorrectInput(e) {
-        if (e.length === 0) {
-          refs.error.classList.remove('is-hidden')
-        } else {
-          refs.error.classList.add('is-hidden')
-        }
-      }
+function onCreateMarkup(data) {
+  data.results.forEach(movie => {
+    if (!movie.genre_ids) {
+      movie.genre_ids = [1];
+    } else {
+      return;
+    }
+
+    if (!movie.vote_average) {
+      movie.vote_average = 0;
+    } else {
+      return;
+    }
+  });
+
+  normalRatingYearGenres(data);
+  refs.galleryList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
+  return data.results;
+}
+
+function onSearch(e) {
+  e.preventDefault();
+  api.query = e.currentTarget.elements.query.value;
+  resetMarkup();
+  api
+    .fetchSearch(e)
+    .then(data => {
+      onCreateMarkup(data);
+      incorrectInput(data.results);
+      console.log(data.results);
+      refs.searchForm.reset();
+      appendImgMarkup();
+    })
+    .catch(onError);
+}
+
+function appendImgMarkup(i) {
+  refs.galleryList.insertAdjacentHTML('beforeend', imgTemp(i));
+}
+
+function resetMarkup() {
+  refs.galleryList.innerHTML = '';
+  api.resetPage();
+  refs.searchForm.reset();
+}
+refs.searchForm.addEventListener('submit', onSearch);
+
+// Ошибки
+function onError() {
+  refs.error.classList.remove('is-hidden');
+  console.log('Search result not successful. Enter the correct movie name and');
+}
+
+function incorrectInput(e) {
+  if (e.length === 0) {
+    refs.error.classList.remove('is-hidden');
+  } else {
+    refs.error.classList.add('is-hidden');
+  }
+}
