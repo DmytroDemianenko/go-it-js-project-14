@@ -107,3 +107,36 @@ dist
 
 # TernJS port file
 .tern-port
+
+src/.partials/footer.html
+src/.partials/main-content.html
+src/index.js
+src/index.html
+src/sass/components/_film-card.scss
+src/sass/components/_footer.scss
+src/sass/components/_main-content.scss
+src/sass/main.css
+src/sass/main.css.map
+src/sass/main.scss
+ src/img/svg.svg
+        src/sass/components/_main-content-lib.scss
+        src/sass/components/_main-content-library.scss
+        src/sass/components/_modal-film-description.scss
+        src/sass/utility/_animation.scss
+        src/sass/utility/_mixins.scss
+        src/sass/utility/_variables.scss
+        src/site.webmanifest
+
+        src/.partials/js/
+        src/.partials/main-content-library.html
+        src/.partials/modal-film-description.hbs
+        src/.partials/modal-film-description.html
+        src/.partials/modal-team-list.hbs
+        src/.partials/pagination.html
+        src/.partials/team-list.json
+        src/android-chrome-192x192.png
+        src/android-chrome-512x512.png
+        src/apple-touch-icon.png
+        src/favicon-16x16.png
+        src/favicon-32x32.png
+        src/favicon.ico

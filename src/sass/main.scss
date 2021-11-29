@@ -1,9 +1,14 @@
+@import './utility/variables';
+@import './utility/mixins';
 @import './utility/styles';
 @import './components/opened-card';
 @import './components/film-card';
 @import './components/header';
-@import './components/header-library';
+//@import './components/my-library-page'; //
 @import './components/main-content';
+@import './components/modal-film-description';
+@import './components/footer';
+@import './components/header-library';
+@import './utility/animation';
 @import './components/reg-modal';
 @import './components/log-modal';
-@import './components/footer';
