@@ -1,5 +1,5 @@
-import card from '../film-card.hbs';
+// import card from '../film-card.hbs';
 
-const list = document.querySelector('.collection');
+// const list = document.querySelector('.collection');
 
-list.insertAdjacentHTML('beforeend', card);
+// list.insertAdjacentHTML('beforeend', card);
