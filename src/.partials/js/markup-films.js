@@ -3,6 +3,9 @@ import imgTemp from '../film-card.hbs';
 import createCardMovies from '../film-card.hbs';
 import TmdbApiService from './apiService';
 import { pagination } from './pagination';
+import { scroll } from './btnUp'
+import trottle from 'lodash.throttle';
+
 const api = new TmdbApiService();
 
 export default function getRefs() {
