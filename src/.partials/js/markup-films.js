@@ -2,6 +2,7 @@
 import imgTemp from '../film-card.hbs';
 import createCardMovies from '../film-card.hbs';
 import TmdbApiService from './apiService';
+import { pagination } from './pagination';
 const api = new TmdbApiService();
 
 export default function getRefs() {
@@ -135,4 +136,15 @@ function normalRatingYearGenres(data) {
         } else {
           refs.error.classList.add('is-hidden')
         }
-      }
+}
+      
+// пагинация
+pagination.on('afterMove', showNewPage);
+
+async function showNewPage(event) {
+  
+  api.page = event.page;
+  const movies = await api.fetchFilms();
+
+  appendImgMarkup(movies.results);
+}
