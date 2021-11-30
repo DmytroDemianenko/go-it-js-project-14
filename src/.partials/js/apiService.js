@@ -1,3 +1,5 @@
+
+
 const BASE_URL = 'https://api.themoviedb.org';
 const API_URL = '070151ea430b4e74dbca9bca592b262c';
 export {TmdbApiService, BASE_URL, API_URL};
