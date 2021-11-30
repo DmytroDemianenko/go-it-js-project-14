@@ -240,10 +240,12 @@
     // align-items: center;
     margin-top: 22px;
     color: #ff001b;
-    opacity: 0;
-    transition: opacity 350ms linear;
-  }
-  .wrong-request-visible {
     opacity: 1;
+    
   }
+}
+.wrong-request.is-hidden{
+  transition: opacity 350ms linear;
+    pointer-events: none;
+    opacity: 0;
 }
