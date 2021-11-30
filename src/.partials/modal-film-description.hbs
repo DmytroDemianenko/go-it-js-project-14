@@ -15,7 +15,7 @@
             <li>Vote / Votes</li>
             <li>Popularity</li>
             <li>Original Title</li>
-            <li>Genre</li>
+            <li>Genres</li>
         </ul>
         <ul class="modal__list modal__list--values">
             <li class="modal-list__item">
@@ -31,7 +31,9 @@
                 <p>{{name}}</p>
                 {{/if}}
             </li>
-            <li>{{genres.name}}</li>
+            <li>{{#each genres}}
+            {{name}},
+            {{/each}}</li>
         </ul>
     </div>
     <div class="modal-text">
