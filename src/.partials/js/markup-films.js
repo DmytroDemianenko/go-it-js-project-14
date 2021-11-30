@@ -2,8 +2,8 @@ import imgTemp from '../film-card.hbs';
 import createCardMovies from '../film-card.hbs';
 import TmdbApiService from './apiService';
 import { pagination } from './pagination';
-import { scroll } from './btnUp'
-import trottle from 'lodash.throttle';
+import { btnScroll } from './btnUp'
+// import trottle from 'lodash.throttle';
 
 const api = new TmdbApiService();
 
@@ -138,20 +138,20 @@ function normalRatingYearGenres(data) {
         } else {
           refs.error.classList.add('is-hidden')
         }
-<<<<<<< HEAD
+
       }
-    
-=======
-}
-      
+   
 // пагинация
+function showMovies(movies) {
+  refs.galleryList.innerHTML = imgTemp(movies);
+}
+
 pagination.on('afterMove', showNewPage);
 
 async function showNewPage(event) {
-  
   api.page = event.page;
   const movies = await api.fetchFilms();
 
-  appendImgMarkup(movies.results);
+  showMovies(movies.results);
+  btnScroll();
 }
->>>>>>> main
