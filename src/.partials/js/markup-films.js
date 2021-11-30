@@ -1,4 +1,3 @@
-
 import imgTemp from '../film-card.hbs';
 import createCardMovies from '../film-card.hbs';
 import TmdbApiService from './apiService';
@@ -136,3 +135,4 @@ function normalRatingYearGenres(data) {
           refs.error.classList.add('is-hidden')
         }
       }
+    

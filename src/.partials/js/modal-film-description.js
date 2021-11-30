@@ -1,55 +1,67 @@
+export {onTitleClick} from '../js/modal-film-description';
+import {TmdbApiService, BASE_URL, API_URL} from './apiService';
 import modalFilmDescription from '../modal-film-description.hbs'
-import createCardMovies from '../film-card.hbs';
-// const list = document.querySelector('.collection');
-// list.insertAdjacentHTML('beforeend', createCardMovies);
 
-export default function modalMovie() {
+const api = new TmdbApiService;
 
-    const refs = {
-      galleryList : document.querySelector('.collection'),
-      movieModal: document.querySelector('.backdrop'),
-      movieContent: document.querySelector('.modal__content'),
-      closeModal: document.querySelector('.button-modal--close'),
-    //   cardFilm:document.querySelector('.film-card')
-    };
+const refs = {
+    modalRef: document.querySelector('.backdrop'),
+    movieName: document.querySelectorAll('.film-card__title'),
+    cardsMovieList: document.querySelector('.collection'),
+    closeModal: document.querySelector('[data-modal-close]'),
+    movieContent: document.querySelector('.modal'),
+    createCardMovie: document.querySelector('.modal__content'),
+};
+refs.cardsMovieList.addEventListener('click', onTitleClick);
+refs.closeModal.addEventListener('click', onMovieDescriptionDetailesClose)
+refs.modalRef.addEventListener('click', onModalClick);
+refs.cardsMovieList.addEventListener('click', onPictureClick);
+refs.closeModal.addEventListener('click', onCloseModalClick);
+
+// вызов
+function onTitleClick(event) {
+    event.preventDefault();
+  api.id = event.target.closest('li').dataset.id;
+  api.fetchDescribeMovie()
+        .then(data => appendMovieCard(data))
+        .catch(error => console.error);
+  
+    refs.modalRef.classList.remove('is-hidden');
     
-    refs.movieModal.addEventListener('click', onModalClick);
-    refs.galleryList.addEventListener('click', onPictureClick);
-    refs.closeModal.addEventListener('click', onCloseModalClick);
-  
-    function appendImgMarkup(i) {
-        refs.movieModal.insertAdjacentHTML('beforeend', modalFilmDescription(i));
-      };
-      appendImgMarkup();
-    function onPictureClick(evt) {
-      evt.preventDefault();
-    //   if (!evt.target.classList.contains('film-card')) {
-    //     return;
-    //   }
-       refs.movieModal.classList.remove('is-hidden');
-    //   console.log(modalMarkup(evt.path[3]));
-    //   refs.movieContent.innerHTML = '';
-    //   refs.movieContent.insertAdjacentHTML('afterbegin', modalMarkup(evt.path[3]));
-    }
-    
-    // закрывается по кнопке
-  function onCloseModalClick() {
-      refs.movieModal.classList.add('is-hidden');
-      refs.movieContent.src = '';
-    }
-  
-    // при клике на пустое место закрывается модалка
-   function onModalClick(evt) {
-      if (refs.movieModal) {
-        onCloseModalClick();
-      }
-    }
-  
-    // при клике на ESC закрывается модалка
-  document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        onCloseModalClick();
-      }
-    });
   }
-  modalMovie();
+function onMovieDescriptionDetailesClose() {
+  refs.modalRef.classList.add('is-hidden');
+  refs.createCardMovie.innerHTML = '';
+}
+function appendMovieCard(movie) {
+    return refs.createCardMovie.insertAdjacentHTML('beforeend', modalFilmDescription(movie));
+  }
+
+// открытие модалки при клике на картинку
+function onPictureClick(evt) {
+evt.preventDefault();
+if (!evt.target.classList.contains('card-movie__img')) {
+  return;
+}
+refs.modalRef.classList.remove('is-hidden');
+// refs.createCardMovie.innerHTML = '';
+// refs.createCardMovie.insertAdjacentHTML('afterbegin', modalMarkup(evt.path[3]));
+}
+
+// закрывается по кнопке
+function onCloseModalClick() {
+refs.modalRef.classList.add('is-hidden');
+refs.movieContent.src = '';
+}
+// при клике на бэкдроп закрывается модалка
+function onModalClick(evt) {
+if (refs.modalRef === evt.target) {
+  onCloseModalClick();
+}
+}
+// при клике на ESC закрывается модалка
+document.addEventListener('keydown', e => {
+if (e.key === 'Escape') {
+  onCloseModalClick();
+}
+});
