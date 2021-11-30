@@ -1,5 +1,6 @@
 import Pagination from 'tui-pagination';
 
+
     const options = {
         totalItems: 1000,
         itemsPerPage: 20,
@@ -7,6 +8,7 @@ import Pagination from 'tui-pagination';
         page: 1,
         centerAlign: true,
         usageStatistics: false,
+
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
         template: {
@@ -25,8 +27,10 @@ import Pagination from 'tui-pagination';
                     '<span class="tui-ico-ellip">...</span>' +
                 '</a>'
         }
+
 }
 
 const container = document.getElementById('pagination');
 
 export const pagination = new Pagination(container, options);
+

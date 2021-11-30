@@ -1,4 +1,5 @@
 
+
 <div class="thumb" data-id="{{id}}">
     <img class="modal__image" src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt="" />
 </div>
@@ -8,6 +9,7 @@
     {{/if}}
     {{#if name}}
     <h2 class="modal__title">{{name}}</h2>
+
     {{/if}}
     
     <div class="wrap-modal">
@@ -19,6 +21,7 @@
         </ul>
         <ul class="modal__list modal__list--values">
             <li class="modal-list__item">
+
                 <span class="modal__rating--orange">{{vote_average}}</span>
                 <span class="modal__rating--slash"> /</span>
                 <span class="modal__rating">{{vote_count}}</span>
@@ -31,9 +34,13 @@
                 <p>{{name}}</p>
                 {{/if}}
             </li>
-            <li>{{#each genres}}
-            {{name}},
-            {{/each}}</li>
+
+//            <li>{{#each genres}}
+  //          {{name}},
+ //           {{/each}}</li>
+
+            <li>{{genres.name}}</li>
+
         </ul>
     </div>
     <div class="modal-text">
@@ -43,6 +50,7 @@
     <ul class='list-buttons'>
         <li>
             <button type='submit' class='button-modal button-modal--orange' id='watchedInModal'>add to watched</button>
+
         </li>
         <li>
             <button type='submit' class='button-modal' id='queueInModal'>add to queue</button>
