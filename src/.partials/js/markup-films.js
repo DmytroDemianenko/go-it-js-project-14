@@ -1,6 +1,10 @@
 import imgTemp from '../film-card.hbs';
 import createCardMovies from '../film-card.hbs';
 import TmdbApiService from './apiService';
+import { pagination } from './pagination';
+import { scroll } from './btnUp'
+import trottle from 'lodash.throttle';
+
 const api = new TmdbApiService();
 
 export default function getRefs() {
@@ -51,7 +55,7 @@ api
   .fetchFilms()
   .then(data => {
     onCreateMarkup(data);
-    console.log(data.results);
+//     console.log(data.results);
   })
   .catch(onError);
 
@@ -134,5 +138,20 @@ function normalRatingYearGenres(data) {
         } else {
           refs.error.classList.add('is-hidden')
         }
+<<<<<<< HEAD
       }
     
+=======
+}
+      
+// пагинация
+pagination.on('afterMove', showNewPage);
+
+async function showNewPage(event) {
+  
+  api.page = event.page;
+  const movies = await api.fetchFilms();
+
+  appendImgMarkup(movies.results);
+}
+>>>>>>> main
