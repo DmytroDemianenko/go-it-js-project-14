@@ -16,22 +16,28 @@ const refsMain = {
   logCloseBtn: document.querySelector('#log-close-btn'),
   loginBtn: document.querySelector('#login-btn'),
   
-  headerMainBtn: document.querySelector('#main-home-btn'),
-  headerLibraryBtn: document.querySelector('#my-lib-btn'),
+  headerLibBtn: document.querySelector('#lib-home-btn'),
+  headerMainMylibBtn: document.querySelector('#my-lib-btn'),
   headerLibrary: document.querySelector('.header-lib'),
   headerMain: document.querySelector('.header'),
+  mainContentSection: document.querySelector('.section-main-content'),
+  libraryContentSection:document.querySelector('.section-library')
 }
 
-refsMain.headerLibraryBtn.addEventListener('click', (e) => {
+refsMain.headerLibBtn.addEventListener('click', (e) => {
   e.preventDefault()
-  refsMain.headerMain.classList.add('invisible')
-  refsMain.headerLibrary.classList.remove('invisible')
-})
-
-refsMain.headerMainBtn.addEventListener('click', (e) => {
-  e.preventDefault()
+  refsMain.libraryContentSection.classList.add('invisible')
   refsMain.headerMain.classList.remove('invisible')
   refsMain.headerLibrary.classList.add('invisible')
+  refsMain.mainContentSection.classList.remove('invisible')
+})
+
+refsMain.headerMainMylibBtn.addEventListener('click', (e) => {
+  e.preventDefault()
+refsMain.libraryContentSection.classList.remove('invisible')
+  refsMain.mainContentSection.classList.add('invisible')
+  refsMain.headerMain.classList.add('invisible')
+  refsMain.headerLibrary.classList.remove('invisible')
 })
 // console.log(refsMain.loginBtn);
 
