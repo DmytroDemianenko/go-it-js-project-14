@@ -1,11 +1,12 @@
 const BASE_URL = 'https://api.themoviedb.org';
 const API_URL = '070151ea430b4e74dbca9bca592b262c';
-
+export {TmdbApiService, BASE_URL, API_URL};
 export default class TmdbApiService{
   constructor() {
     this.searchQuery = '';
     this.page = 1;
     this.language = 'en-US';
+    this.id = null;
 }
 
 // Трендовые фильмы
@@ -26,7 +27,14 @@ async fetchSearch() {
   const data = await response.json();
   return data;
 }
-  
+async fetchDescribeMovie() {
+  const response = await fetch(`${BASE_URL}/3/movie/${this.id}?api_key=${API_URL}&language=${this.language}`); 
+   const data = await response.json();
+   console.log(data);
+   return data;
+   
+  }
+
 incrementPage() {
     this.page += 1;
   }

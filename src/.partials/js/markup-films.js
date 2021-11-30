@@ -1,4 +1,3 @@
-
 import imgTemp from '../film-card.hbs';
 import createCardMovies from '../film-card.hbs';
 import TmdbApiService from './apiService';
@@ -139,6 +138,10 @@ function normalRatingYearGenres(data) {
         } else {
           refs.error.classList.add('is-hidden')
         }
+<<<<<<< HEAD
+      }
+    
+=======
 }
       
 // пагинация
@@ -151,3 +154,4 @@ async function showNewPage(event) {
 
   appendImgMarkup(movies.results);
 }
+>>>>>>> main
